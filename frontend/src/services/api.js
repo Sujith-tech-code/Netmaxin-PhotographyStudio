@@ -3,6 +3,11 @@
  * Interacts with Express Backend with resilient client-side fallbacks.
  */
 
+// Base API URL: Supports Vercel env variable, Render backend URL, or relative /api proxy
+const API_BASE = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
+  : (import.meta.env.PROD ? 'https://netmaxin-photographystudio.onrender.com' : '');
+
 // Curated film photograph fixtures with authentic analog stock aesthetics
 const FALLBACK_GALLERY = [
   {
@@ -258,7 +263,9 @@ let clientFallbackGallery = [...FALLBACK_GALLERY];
  */
 export const fetchGallery = async (category = '') => {
   try {
-    const url = category ? `/api/gallery?category=${encodeURIComponent(category)}` : '/api/gallery';
+    const url = category
+      ? `${API_BASE}/api/gallery?category=${encodeURIComponent(category)}`
+      : `${API_BASE}/api/gallery`;
     const res = await fetch(url);
     if (!res.ok) throw new Error('Network response was not ok');
     const json = await res.json();
@@ -277,7 +284,7 @@ export const fetchGallery = async (category = '') => {
  */
 export const fetchPricing = async () => {
   try {
-    const res = await fetch('/api/pricing');
+    const res = await fetch(`${API_BASE}/api/pricing`);
     if (!res.ok) throw new Error('Network response was not ok');
     const json = await res.json();
     return {
@@ -296,7 +303,7 @@ export const fetchPricing = async () => {
  */
 export const fetchStudio = async () => {
   try {
-    const res = await fetch('/api/studio');
+    const res = await fetch(`${API_BASE}/api/studio`);
     if (!res.ok) throw new Error('Network response was not ok');
     const json = await res.json();
     return json.data || FALLBACK_STUDIO;
@@ -311,7 +318,7 @@ export const fetchStudio = async () => {
  */
 export const submitBooking = async (formData) => {
   try {
-    const res = await fetch('/api/bookings', {
+    const res = await fetch(`${API_BASE}/api/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -355,7 +362,7 @@ const getAdminHeaders = (passkey) => ({
  */
 export const verifyAdminPasskey = async (passkey) => {
   try {
-    const res = await fetch('/api/admin/verify', {
+    const res = await fetch(`${API_BASE}/api/admin/verify`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ passkey })
@@ -381,7 +388,7 @@ export const verifyAdminPasskey = async (passkey) => {
  */
 export const fetchAdminBookings = async (passkey) => {
   try {
-    const res = await fetch('/api/bookings', {
+    const res = await fetch(`${API_BASE}/api/bookings`, {
       headers: getAdminHeaders(passkey)
     });
     const data = await res.json();
@@ -398,7 +405,7 @@ export const fetchAdminBookings = async (passkey) => {
  */
 export const updateBookingStatus = async (id, status, passkey) => {
   try {
-    const res = await fetch(`/api/bookings/${id}/status`, {
+    const res = await fetch(`${API_BASE}/api/bookings/${id}/status`, {
       method: 'PATCH',
       headers: getAdminHeaders(passkey),
       body: JSON.stringify({ status })
@@ -418,7 +425,7 @@ export const updateBookingStatus = async (id, status, passkey) => {
  */
 export const deleteBooking = async (id, passkey) => {
   try {
-    const res = await fetch(`/api/bookings/${id}`, {
+    const res = await fetch(`${API_BASE}/api/bookings/${id}`, {
       method: 'DELETE',
       headers: getAdminHeaders(passkey)
     });
@@ -436,7 +443,7 @@ export const deleteBooking = async (id, passkey) => {
  */
 export const createGalleryItem = async (itemData, passkey) => {
   try {
-    const res = await fetch('/api/gallery', {
+    const res = await fetch(`${API_BASE}/api/gallery`, {
       method: 'POST',
       headers: getAdminHeaders(passkey),
       body: JSON.stringify(itemData)
@@ -464,7 +471,7 @@ export const createGalleryItem = async (itemData, passkey) => {
  */
 export const updateGalleryItem = async (id, itemData, passkey) => {
   try {
-    const res = await fetch(`/api/gallery/${id}`, {
+    const res = await fetch(`${API_BASE}/api/gallery/${id}`, {
       method: 'PUT',
       headers: getAdminHeaders(passkey),
       body: JSON.stringify(itemData)
@@ -487,7 +494,7 @@ export const updateGalleryItem = async (id, itemData, passkey) => {
  */
 export const deleteGalleryItem = async (id, passkey) => {
   try {
-    const res = await fetch(`/api/gallery/${id}`, {
+    const res = await fetch(`${API_BASE}/api/gallery/${id}`, {
       method: 'DELETE',
       headers: getAdminHeaders(passkey)
     });
@@ -505,7 +512,7 @@ export const deleteGalleryItem = async (id, passkey) => {
  */
 export const fetchAdminStats = async (passkey) => {
   try {
-    const res = await fetch('/api/admin/stats', {
+    const res = await fetch(`${API_BASE}/api/admin/stats`, {
       headers: getAdminHeaders(passkey)
     });
     const data = await res.json();

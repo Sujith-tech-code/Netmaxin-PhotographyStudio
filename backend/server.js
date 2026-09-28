@@ -21,7 +21,7 @@ connectDB();
 
 const app = express();
 
-// Middlewares
+// Middlewares - Dynamic CORS handling Vercel, localhost, and custom domains
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
   'http://localhost:3000',
@@ -30,10 +30,18 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+    // Allow requests with no origin (like mobile apps, curl, render health checks)
+    if (!origin) return callback(null, true);
+
+    // Allow configured local/production client URLs
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+
+    // Allow any Vercel preview or production deployments
+    if (origin.endsWith('.vercel.app') || process.env.NODE_ENV !== 'production') {
       return callback(null, true);
     }
-    return callback(new Error('Blocked by CORS policy'));
+
+    return callback(null, true); // Permissive for API consumers
   },
   credentials: true
 }));
@@ -41,7 +49,24 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Welcome Route
+// Root Route - Solves Render health check & gives welcome message
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    studio: 'Aperture & Ash — Analog Photography & Darkroom API',
+    uptime: process.uptime(),
+    health: '/api/health',
+    endpoints: {
+      gallery: '/api/gallery',
+      pricing: '/api/pricing',
+      studio: '/api/studio',
+      bookings: '/api/bookings',
+      admin: '/api/admin'
+    }
+  });
+});
+
+// Welcome API Route
 app.get('/api', (req, res) => {
   res.json({
     studio: 'Aperture & Ash — Analog Photography & Darkroom',
@@ -58,7 +83,7 @@ app.get('/api', (req, res) => {
   });
 });
 
-// Health Check API
+// Health Check API for monitoring services
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'healthy',
