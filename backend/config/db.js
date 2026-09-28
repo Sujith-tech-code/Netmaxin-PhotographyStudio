@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
+  const connString = process.env.MONGO_URI;
+
+  if (!connString) {
+    console.warn('[Database] MONGO_URI not set. Running without a database; DB routes will fail.');
+    return;
+  }
+
   try {
-    const connString = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/aperture_and_ash';
-    const conn = await mongoose.connect(connString);
+    const conn = await mongoose.connect(connString, {
+      serverSelectionTimeoutMS: 5000
+    });
     console.log(`[Database] MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
+    // Don't exit: keep the server up so /, /api and /api/health still respond
     console.error(`[Database Error] ${error.message}`);
-    // In local dev without active mongo, we don't exit process so other routes can still be tested
-    if (process.env.NODE_ENV === 'production') {
-      process.exit(1);
-    }
   }
 };
 
