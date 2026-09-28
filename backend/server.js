@@ -1,7 +1,12 @@
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
+// Load environment variables
+dotenv.config();
 const connectDB = require('./config/db');
+// Connect to Database
+connectDB();
 
 // Route Handlers
 const galleryRoutes = require('./routes/galleryRoutes');
@@ -13,13 +18,11 @@ const adminRoutes = require('./routes/adminRoutes');
 // Middleware Handlers
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
 
-// Load environment variables
-dotenv.config();
 
-// Connect to Database
-connectDB();
 
-const app = express();
+
+
+
 
 // Middlewares - Dynamic CORS handling Vercel, localhost, and custom domains
 const allowedOrigins = [
