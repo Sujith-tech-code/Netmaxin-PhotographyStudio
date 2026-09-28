@@ -1,0 +1,82 @@
+/* ==========================================================================
+   Aperture & Ash — CSS Custom Properties & Design Tokens
+   ========================================================================== */
+
+:root {
+  /* Backgrounds & Paper Textures */
+  --bg-parchment: #f6f1e8;
+  --bg-parchment-deep: #eee5d5;
+  --bg-surface: #fbf8f2;
+  --bg-surface-alt: #f0e7d8;
+  --bg-print-border: #ffffff;
+  --bg-card: #fcf9f5;
+
+  /* Ink & Typography Colors */
+  --color-ink: #2a231d;
+  --color-ink-muted: #5e5348;
+  --color-ink-faint: #8e8071;
+  --color-ink-stamp: #3c3228;
+
+  /* Accent Colorways */
+  --accent-rust: #a2432a;
+  --accent-rust-hover: #88351f;
+  --accent-rust-subtle: rgba(162, 67, 42, 0.08);
+  --accent-ochre: #bd8624;
+  --accent-ochre-light: #e5b357;
+  --accent-ochre-subtle: rgba(189, 134, 36, 0.1);
+  --accent-olive: #566443;
+  --accent-olive-light: #73845b;
+  --accent-olive-subtle: rgba(86, 100, 67, 0.1);
+
+  /* Borders & Lines */
+  --border-aged: #dcd0be;
+  --border-aged-dark: #c5b69f;
+  --border-film-edge: #26201a;
+
+  /* Typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Libre Baskerville', Georgia, serif;
+  --font-typewriter: 'Courier Prime', 'Courier New', monospace;
+
+  /* Sizing & Transitions */
+  --container-max: 1160px;
+  --container-narrow: 860px;
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-print: 2px 3px 0px rgba(42, 35, 29, 0.08);
+  --shadow-print-hover: 4px 6px 0px rgba(42, 35, 29, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Darkroom Mode (Prefers Color Scheme: Dark)
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-parchment: #151311;
+    --bg-parchment-deep: #0e0d0b;
+    --bg-surface: #1d1a17;
+    --bg-surface-alt: #26221e;
+    --bg-print-border: #2c2722;
+    --bg-card: #201c18;
+
+    --color-ink: #f2ebe1;
+    --color-ink-muted: #b8ac9c;
+    --color-ink-faint: #7e7365;
+    --color-ink-stamp: #d6cbba;
+
+    --accent-rust: #d46244;
+    --accent-rust-hover: #e87b5f;
+    --accent-rust-subtle: rgba(212, 98, 68, 0.15);
+    --accent-ochre: #d69e3d;
+    --accent-ochre-light: #f2c26d;
+    --accent-ochre-subtle: rgba(214, 158, 61, 0.15);
+    --accent-olive: #7c9261;
+    --accent-olive-light: #9ab37c;
+    --accent-olive-subtle: rgba(124, 146, 97, 0.15);
+
+    --border-aged: #383129;
+    --border-aged-dark: #4d4439;
+    --border-film-edge: #0a0908;
+    --shadow-print: 2px 3px 0px rgba(0, 0, 0, 0.35);
+    --shadow-print-hover: 4px 6px 0px rgba(0, 0, 0, 0.55);
+  }
+}

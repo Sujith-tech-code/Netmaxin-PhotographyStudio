@@ -1,0 +1,305 @@
+/* ==========================================================================
+   Aperture & Ash — Contact / Booking Form Styles
+   ========================================================================== */
+
+.contact-page {
+  padding-bottom: 6rem;
+}
+
+.contact-ledger-banner {
+  background-color: var(--bg-surface-alt);
+  border-left: 3px solid var(--accent-rust);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.ledger-banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-ledger-banner p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* Form Container Card */
+.contact-form-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-aged-dark);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-print);
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.label-icon {
+  color: var(--accent-rust);
+}
+
+.required-star {
+  color: var(--accent-rust);
+  font-weight: 700;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-ink);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-aged-dark);
+  padding: 0.85rem 1rem;
+  transition: var(--transition-smooth);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232a231d%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-rust);
+  background-color: var(--bg-print-border);
+  box-shadow: 0 0 0 2px var(--accent-rust-subtle);
+}
+
+.input-error {
+  border-color: var(--accent-rust) !important;
+  background-color: rgba(162, 67, 42, 0.03);
+}
+
+.form-error {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  color: var(--accent-rust);
+  margin-top: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.form-server-error {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(162, 67, 42, 0.08);
+  border: 1px solid var(--accent-rust);
+  padding: 1rem;
+  color: var(--accent-rust);
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+}
+
+.form-submit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-top: 1px dashed var(--border-aged-dark);
+  padding-top: 1.75rem;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+}
+
+.submit-note {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  color: var(--color-ink-faint);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Confirmation Receipt Box
+   -------------------------------------------------------------------------- */
+.confirmation-card {
+  background-color: var(--bg-card);
+  border: 2px solid var(--accent-olive);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-print);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.confirmation-stamp {
+  margin-bottom: 1.5rem;
+}
+
+.confirmation-icon {
+  color: var(--accent-olive);
+  margin-bottom: 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.confirmation-card h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.receipt-box {
+  background-color: var(--bg-surface-alt);
+  border: 1px dashed var(--border-aged-dark);
+  padding: 1.75rem 2rem;
+  margin: 2.5rem 0;
+  text-align: left;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--border-aged);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.receipt-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+}
+
+.receipt-label {
+  color: var(--color-ink-muted);
+  letter-spacing: 0.08em;
+}
+
+.receipt-value {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-accent {
+  color: var(--accent-rust);
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Direct Studio Contacts
+   -------------------------------------------------------------------------- */
+.direct-contact-section {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--border-aged);
+  padding-top: 2.5rem;
+}
+
+.direct-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  text-align: center;
+}
+
+.direct-contact-col h5 {
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-rust);
+  margin-bottom: 0.4rem;
+}
+
+.direct-contact-col p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .contact-form-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .direct-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .receipt-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}

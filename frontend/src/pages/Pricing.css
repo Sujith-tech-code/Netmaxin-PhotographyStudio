@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Aperture & Ash — Pricing Tiers Styles
+   ========================================================================== */
+
+.pricing-page {
+  padding-bottom: 6rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.25rem;
+  align-items: stretch;
+  margin-bottom: 4.5rem;
+}
+
+.pricing-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-aged-dark);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Featured / Highlighted Tier */
+.pricing-card.featured {
+  border: 2px solid var(--accent-rust);
+  background-color: var(--bg-surface);
+  box-shadow: 0 8px 30px rgba(162, 67, 42, 0.12);
+  transform: scale(1.02);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.03) translateY(-3px);
+}
+
+.pricing-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.featured-banner {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.pricing-card-header h3 {
+  font-size: 1.75rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.tier-tagline {
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+  min-height: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.price-amount {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.price-period {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  color: var(--color-ink-faint);
+}
+
+.tier-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  color: var(--accent-olive);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.tier-divider {
+  height: 1px;
+  background-color: var(--border-aged);
+  margin-bottom: 1.75rem;
+}
+
+.tier-inclusions {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.tier-inclusions h5 {
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-faint);
+  margin-bottom: 1rem;
+}
+
+.tier-inclusions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tier-inclusions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+.check-icon {
+  color: var(--accent-rust);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.tier-turnaround {
+  background-color: var(--bg-surface-alt);
+  border: 1px dotted var(--border-aged-dark);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.tier-turnaround .typewriter-label {
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+
+.tier-turnaround p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Travel Policy Section
+   -------------------------------------------------------------------------- */
+.travel-policy-section {
+  margin-bottom: 4rem;
+}
+
+.travel-policy-card {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-aged);
+  padding: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.travel-policy-icon {
+  color: var(--accent-ochre);
+  flex-shrink: 0;
+}
+
+.travel-policy-content h3 {
+  font-size: 1.45rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.travel-policy-content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Studio Guarantees
+   -------------------------------------------------------------------------- */
+.pricing-guarantees {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  border-top: 1px solid var(--border-aged);
+  padding-top: 3.5rem;
+}
+
+.guarantee-item {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.guarantee-icon {
+  color: var(--accent-olive);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.guarantee-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.guarantee-item p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-card.featured {
+    transform: none;
+  }
+
+  .travel-policy-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pricing-guarantees {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

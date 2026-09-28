@@ -1,0 +1,177 @@
+/* ==========================================================================
+   Aperture & Ash — Gallery / Work Styles (Contact Sheet Grid)
+   ========================================================================== */
+
+.gallery-page {
+  padding-bottom: 6rem;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-aged);
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-title {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-ink-muted);
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.95rem;
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-aged-dark);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+  background-color: var(--border-aged);
+  border-color: var(--color-ink-muted);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-rust);
+  color: #ffffff;
+  border-color: var(--accent-rust);
+}
+
+.contact-sheet-meta {
+  background-color: var(--bg-surface-alt);
+  border-left: 3px solid var(--accent-rust);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.contact-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-sheet-meta p {
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Irregular Contact Sheet Grid
+   -------------------------------------------------------------------------- */
+.contact-sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3.5rem 2.5rem;
+  align-items: start;
+}
+
+.contact-frame-cell {
+  position: relative;
+}
+
+/* Irregular Asymmetric Column Spans */
+.grid-span-portrait {
+  grid-column: span 6;
+}
+
+.grid-span-landscape {
+  grid-column: span 6;
+}
+
+.grid-span-square {
+  grid-column: span 6;
+}
+
+.frame-story-caption {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+  margin-top: 1rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--border-aged);
+}
+
+.frame-story-caption .frame-loc {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-olive);
+  margin-top: 0.25rem;
+}
+
+.gallery-loading {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Technical Film Stocks Section
+   -------------------------------------------------------------------------- */
+.film-stocks-note {
+  margin-top: 5rem;
+  border: 1px solid var(--border-aged);
+  background-color: var(--bg-card);
+  padding: 2.5rem;
+}
+
+.stocks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.stock-col h5 {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-rust);
+  margin-bottom: 0.75rem;
+}
+
+.stock-col p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .contact-sheet-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .grid-span-portrait,
+  .grid-span-landscape,
+  .grid-span-square {
+    grid-column: span 1;
+  }
+
+  .stocks-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}

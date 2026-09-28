@@ -1,0 +1,404 @@
+@import './variables.css';
+
+/* --------------------------------------------------------------------------
+   Base & Document Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: radial-gradient(var(--border-aged) 0.6px, transparent 0.6px);
+  background-size: 24px 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--accent-rust);
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--color-ink-muted);
+}
+
+p.lead {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.typewriter-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-rust);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.stamp {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: 1px dashed var(--color-ink-faint);
+  padding: 0.25rem 0.6rem;
+  display: inline-block;
+  color: var(--color-ink-stamp);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.stamp-ochre {
+  border-color: var(--accent-ochre);
+  color: var(--accent-ochre);
+  background-color: var(--accent-ochre-subtle);
+}
+
+.stamp-rust {
+  border-color: var(--accent-rust);
+  color: var(--accent-rust);
+  background-color: var(--accent-rust-subtle);
+}
+
+.stamp-olive {
+  border-color: var(--accent-olive);
+  color: var(--accent-olive);
+  background-color: var(--accent-olive-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   Layout Containers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section-spacing {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.page-header {
+  padding: 4rem 0 3.25rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-aged);
+  margin-bottom: 3.5rem;
+  background-color: var(--bg-surface-alt);
+}
+
+.page-header p {
+  max-width: 620px;
+  margin: 0.85rem auto 0;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & Links
+   -------------------------------------------------------------------------- */
+.btn {
+  font-family: var(--font-typewriter);
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.85rem 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--accent-rust);
+  color: #ffffff !important;
+  border-color: var(--accent-rust);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-rust-hover);
+  border-color: var(--accent-rust-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-ink) !important;
+  border: 1px solid var(--border-aged-dark);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-ink);
+  background-color: var(--bg-surface-alt);
+}
+
+.btn-olive {
+  background-color: var(--accent-olive);
+  color: #ffffff !important;
+  border-color: var(--accent-olive);
+}
+
+.btn-olive:hover {
+  background-color: var(--accent-olive-light);
+  border-color: var(--accent-olive-light);
+}
+
+/* --------------------------------------------------------------------------
+   Film Photo Print System (Tactile, loose print look)
+   -------------------------------------------------------------------------- */
+.film-print {
+  background-color: var(--bg-print-border);
+  padding: 12px 12px 24px 12px;
+  border: 1px solid var(--border-aged-dark);
+  box-shadow: var(--shadow-print);
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.film-print:hover {
+  transform: translateY(-4px) scale(1.015) !important;
+  box-shadow: var(--shadow-print-hover);
+}
+
+.photo-canvas {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-aged);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-canvas.aspect-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.photo-canvas.aspect-landscape {
+  aspect-ratio: 3 / 2;
+}
+
+.photo-canvas.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Gradient Placeholders mimicking film stock emulsions */
+.placeholder-portrait-1 {
+  background: linear-gradient(135deg, #c7a78e 0%, #876249 50%, #4f3322 100%);
+}
+
+.placeholder-portrait-2 {
+  background: linear-gradient(135deg, #b88667 0%, #7d5945 50%, #3e281b 100%);
+}
+
+.placeholder-wedding-1 {
+  background: linear-gradient(135deg, #d8cebe 0%, #a99680 50%, #5d4e3d 100%);
+}
+
+.placeholder-wedding-2 {
+  background: linear-gradient(135deg, #c9bca7 0%, #8f7c65 50%, #463b2f 100%);
+}
+
+.placeholder-still-life {
+  background: linear-gradient(135deg, #8b927c 0%, #5b644a 50%, #2f3721 100%);
+}
+
+.placeholder-candid {
+  background: linear-gradient(135deg, #d1a877 0%, #996e41 50%, #523419 100%);
+}
+
+.placeholder-editorial {
+  background: linear-gradient(135deg, #a39281 0%, #685848 50%, #30261c 100%);
+}
+
+.placeholder-product {
+  background: linear-gradient(135deg, #c2beae 0%, #85806c 50%, #444030 100%);
+}
+
+/* Darkroom Vignette */
+.photo-canvas::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 50%, rgba(18, 14, 11, 0.45) 100%);
+  pointer-events: none;
+}
+
+.photo-badge {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+  z-index: 2;
+  padding: 1.25rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  line-height: 1.35;
+}
+
+.film-frame-stamp {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: var(--font-typewriter);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 6px;
+  letter-spacing: 0.12em;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.film-caption {
+  margin-top: 14px;
+  font-family: var(--font-typewriter);
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px dotted var(--border-aged);
+  padding-top: 8px;
+}
+
+.film-caption .frame-num {
+  color: var(--accent-rust);
+  font-weight: 700;
+}
+
+.film-caption .frame-cat {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Rotation helpers */
+.tilt-left {
+  transform: rotate(-1.5deg);
+}
+
+.tilt-right {
+  transform: rotate(1.8deg);
+}
+
+.tilt-slight-left {
+  transform: rotate(-0.8deg);
+}
+
+.tilt-slight-right {
+  transform: rotate(0.9deg);
+}
+
+/* --------------------------------------------------------------------------
+   Decorative Lines & Flourishes
+   -------------------------------------------------------------------------- */
+.ornament-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem 0;
+  color: var(--accent-ochre);
+}
+
+.ornament-rule::before,
+.ornament-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-aged);
+  margin: 0 1.25rem;
+}

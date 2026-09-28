@@ -1,0 +1,114 @@
+.film-print {
+  background-color: var(--bg-print-border);
+  padding: 12px 12px 20px 12px;
+  border: 1px solid var(--border-aged-dark);
+  box-shadow: var(--shadow-print);
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.film-print:hover {
+  transform: translateY(-4px) scale(1.015) !important;
+  box-shadow: var(--shadow-print-hover);
+  z-index: 5;
+}
+
+.photo-canvas {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-aged);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-canvas.aspect-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.photo-canvas.aspect-landscape {
+  aspect-ratio: 3 / 2;
+}
+
+.photo-canvas.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.film-frame-stamp {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: var(--font-typewriter);
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 7px;
+  letter-spacing: 0.12em;
+  z-index: 2;
+  text-transform: uppercase;
+  backdrop-filter: blur(2px);
+}
+
+.photo-badge {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  z-index: 2;
+  padding: 1.25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.35;
+}
+
+.film-caption {
+  margin-top: 14px;
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dotted var(--border-aged);
+  padding-top: 8px;
+  gap: 0.5rem;
+}
+
+.film-caption .frame-num {
+  color: var(--accent-rust);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.film-caption .frame-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.film-caption .frame-cat {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  color: var(--accent-olive);
+}
+
+.film-technical-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-typewriter);
+  font-size: 0.65rem;
+  color: var(--color-ink-faint);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}

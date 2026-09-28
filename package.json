@@ -1,0 +1,27 @@
+{
+  "name": "aperture-and-ash",
+  "version": "1.0.0",
+  "description": "Aperture & Ash — Vintage Film Photography Studio Full-Stack Web Application",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "start": "node backend/server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "photography",
+    "vintage",
+    "react",
+    "express",
+    "mongodb",
+    "film-studio"
+  ],
+  "author": "",
+  "license": "ISC"
+}

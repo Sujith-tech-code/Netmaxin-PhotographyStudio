@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Aperture & Ash — Studio & About Page Styles
+   ========================================================================== */
+
+.studio-page {
+  padding-bottom: 6rem;
+}
+
+.studio-story-section {
+  margin-bottom: 5.5rem;
+}
+
+.studio-story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.studio-narrative h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.studio-signature {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-aged-dark);
+}
+
+.signature-text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--accent-rust);
+  margin-bottom: 0.2rem;
+}
+
+.signature-sub {
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.1em;
+}
+
+/* Studio Visual Frame */
+.studio-visual-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.studio-print-frame {
+  background-color: var(--bg-print-border);
+  padding: 14px 14px 24px 14px;
+  border: 1px solid var(--border-aged-dark);
+  box-shadow: var(--shadow-print);
+}
+
+.studio-photo-canvas {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-aged);
+}
+
+.studio-canvas-content {
+  padding: 2rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.25rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.studio-canvas-sub {
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+.studio-print-caption {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-typewriter);
+  font-size: 0.72rem;
+  color: var(--color-ink-faint);
+  border-top: 1px dotted var(--border-aged);
+  padding-top: 8px;
+  letter-spacing: 0.08em;
+}
+
+.studio-visit-box {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-aged);
+  padding: 1.75rem;
+}
+
+.studio-visit-box h4 {
+  font-size: 1.25rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.studio-visit-box p {
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Stats Section
+   -------------------------------------------------------------------------- */
+.studio-stats-section {
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--border-aged);
+  border-bottom: 1px solid var(--border-aged);
+  background-color: var(--bg-surface);
+  margin-bottom: 5.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-aged-dark);
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-rust);
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent-rust);
+  margin-bottom: 0.4rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-ink);
+  margin-bottom: 0.5rem;
+}
+
+.stat-desc {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Gear / Apparatus Section
+   -------------------------------------------------------------------------- */
+.gear-section {
+  margin-bottom: 5.5rem;
+}
+
+.gear-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-aged);
+  padding: 3.5rem 3rem;
+}
+
+.gear-header {
+  margin-bottom: 2.5rem;
+}
+
+.gear-header h3 {
+  font-size: 1.85rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.gear-item {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px dashed var(--border-aged);
+  padding-bottom: 1.5rem;
+}
+
+.gear-number {
+  font-family: var(--font-typewriter);
+  font-size: 1.1rem;
+  color: var(--accent-ochre);
+  font-weight: 700;
+}
+
+.gear-details h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.gear-type {
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--accent-olive);
+  display: block;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.gear-film {
+  font-size: 0.92rem;
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+.studio-bottom-cta {
+  margin-top: 2rem;
+}
+
+@media (max-width: 960px) {
+  .studio-story-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gear-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
